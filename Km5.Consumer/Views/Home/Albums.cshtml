@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Albums";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="container-fluid">
+	@foreach (var album in Model)
+	{
+		<div class="media">
+			<div class="media-left media-middle">
+				<img alt="@album.Name" src="@Url.Content(""+ @album.Image)" class="img-rounded center-block" width="130" height="130" />
+			</div>
+			<div class="media-body media-middle">
+				<h4 class="media-heading">@album.Name</h4>
+				<p>Played @album.Playcount times</p>
+				<p>People who likes this album: @album.Listeners</p>
+				<a href="@Url.Content(""+@album.Url)">Even more from this album.</a>
+			</div>
+		</div>
+	}
+</div>
+
+<h6>Winner Service: @ViewData["Winner"].</h6>
+<h6>Ellapsed Time: @ViewData["Ellapsed"]</h6>

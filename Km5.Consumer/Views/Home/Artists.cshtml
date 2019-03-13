@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Artists";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="container-fluid">
+	@foreach (var artist in Model)
+	{
+		<a href="@Url.Content("/Home/Albums?id="+@artist.ID+"&artistName="+@artist.name)">
+			<div class="col-xs-6 col-sm-4">
+				<img alt="@artist.name" src="@Url.Content(""+ @artist.image)" class="img-circle center-block" width="180" height="180" />
+				<p class="text-center"> @artist.name </p>
+			</div>
+		</a>
+	}
+</div>
+
+<h6>Winner Service: @ViewData["Winner"].</h6>
+<h6>Ellapsed Time: @ViewData["Ellapsed"]</h6>

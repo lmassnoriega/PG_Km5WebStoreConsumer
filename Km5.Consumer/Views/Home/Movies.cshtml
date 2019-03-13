@@ -1,0 +1,27 @@
+﻿@{
+	ViewData["Title"] = "Movie Colection";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="container-fluid">
+	@foreach (var movie in Model)
+	{
+		<div class="media">
+			<div class="media-left media-middle">
+				<img alt="@movie.Title" src="@Url.Content(""+ @movie.Poster)" class="img-rounded center-block" width="150" height="200" />
+			</div>
+			<div class="media-body media-middle">
+				<h4 class="media-heading">@movie.Title (@movie.Year)</h4>
+				<p> <b> Director:</b> @movie.Director</p>
+				<p> <b>Cast:</b> @movie.Actors</p>
+				<p> <b>Genre:</b> @movie.Genre</p>
+				<p> <b>Runtime:</b> @movie.Runtime</p>
+				@*<p> <b>Plot:</b> @movie.Plot</p>*@
+			</div>
+		</div>
+	}
+</div>
+
+<h6>Winner Service: @ViewData["Winner"].</h6>
+<h6>Ellapsed Time: @ViewData["Ellapsed"]</h6>
